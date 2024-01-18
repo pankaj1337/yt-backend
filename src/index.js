@@ -10,6 +10,14 @@ dotenv.config({
 
 
 connectDB()
+.then(()=>{
+  app.listen(process.env.PORT || 8000, ()=> {
+    console.log(`erver is running at port: ${process.env.PORT}`)
+  })
+})
+.catch((err)=>{
+  console.log("MONGOD db connection failed at index.js !!!",err);
+})
 
 
 
